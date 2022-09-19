@@ -1,6 +1,8 @@
 package com.kakaobank.blogsearch.keyword.domain;
 
+import com.kakaobank.blogsearch.keyword.domain.KeywordInfo.PopularKeywordInfo;
 import com.kakaobank.blogsearch.keyword.domain.KeywordInfo.PopularKeywords;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class KeywordServiceImpl implements KeywordService {
 
 	private final KeywordStore keywordStore;
+	private final KeywordReader keywordReader;
 
 	@Transactional
 	@Override public void saveKeyword(final KeywordCommand.Search commond) {
@@ -19,7 +22,8 @@ public class KeywordServiceImpl implements KeywordService {
 
 	@Transactional(readOnly = true)
 	@Override public PopularKeywords getPopularKeywordsTop10() {
-		return null;
+		final List<PopularKeywordInfo> popularKeywordsTop10 = keywordReader.findPopularKeywordsTop10();
+		return PopularKeywords.of(popularKeywordsTop10);
 	}
 
 }
