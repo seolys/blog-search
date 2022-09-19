@@ -1,6 +1,6 @@
-package com.kakaobank.blogsearch.exception;
+package com.kakaobank.blogsearch.common.exception;
 
-import com.kakaobank.blogsearch.response.ResponseCode;
+import com.kakaobank.blogsearch.common.response.ResponseCode;
 import lombok.Getter;
 
 /**

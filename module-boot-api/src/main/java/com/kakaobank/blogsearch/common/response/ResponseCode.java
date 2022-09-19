@@ -1,4 +1,4 @@
-package com.kakaobank.blogsearch.response;
+package com.kakaobank.blogsearch.common.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,9 +1,9 @@
-package com.kakaobank.blogsearch.exception;
+package com.kakaobank.blogsearch.common.exception;
 
-import static com.kakaobank.blogsearch.response.ResponseCode.INVALID_PARAMETER;
-import static com.kakaobank.blogsearch.response.ResponseCode.SYSTEM_ERROR;
+import static com.kakaobank.blogsearch.common.response.ResponseCode.INVALID_PARAMETER;
+import static com.kakaobank.blogsearch.common.response.ResponseCode.SYSTEM_ERROR;
 
-import com.kakaobank.blogsearch.response.CommonResponse;
+import com.kakaobank.blogsearch.common.response.CommonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
