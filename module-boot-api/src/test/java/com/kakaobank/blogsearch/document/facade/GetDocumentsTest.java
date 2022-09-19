@@ -7,8 +7,8 @@ import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
 
 import com.kakaobank.blogsearch.document.domain.DocumentCommand;
-import com.kakaobank.blogsearch.document.domain.DocumentCommand.Sort;
 import com.kakaobank.blogsearch.document.domain.DocumentInfo.Documents;
+import com.kakaobank.blogsearch.document.domain.DocumentSort;
 import com.kakaobank.blogsearch.document.domain.apicaller.DocumentApiTemplate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ class GetDocumentsTest {
 	@DisplayName("블로그 검색 검증")
 	void searchBlog_success() {
 		// given
-		final DocumentCommand.GetDocuments request = DocumentCommand.GetDocuments.of("커피", Sort.accuracy, 1, 20);
+		final DocumentCommand.GetDocuments request = DocumentCommand.GetDocuments.of("커피", DocumentSort.accuracy, 1, 20);
 		mockApiTemplate(apiTemplate, request);
 
 		// when

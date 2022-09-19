@@ -1,6 +1,5 @@
 package com.kakaobank.blogsearch.document.domain;
 
-import static com.kakaobank.blogsearch.document.domain.DocumentCommand.Sort;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,7 +21,7 @@ class DocumentCommandTest {
 
 	static Stream<GetDocuments> validate_success_arguments() {
 		return Stream.of(
-				GetDocuments.of("query", Sort.accuracy, 1, 10),
+				GetDocuments.of("query", DocumentSort.accuracy, 1, 10),
 				GetDocuments.of("query", null, null, null)
 		);
 	}

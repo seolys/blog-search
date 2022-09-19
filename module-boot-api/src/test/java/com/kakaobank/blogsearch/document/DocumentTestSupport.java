@@ -8,7 +8,7 @@ import com.kakaobank.blogsearch.document.domain.DocumentInfo;
 import com.kakaobank.blogsearch.document.domain.DocumentInfo.Document;
 import com.kakaobank.blogsearch.document.domain.DocumentInfo.Meta;
 import com.kakaobank.blogsearch.document.domain.apicaller.DocumentApiTemplate;
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +17,7 @@ public class DocumentTestSupport {
 
 	public static void mockApiTemplate(final DocumentApiTemplate mockApiClient, final GetDocuments request) {
 		final int totalCount = 100;
-		final Meta meta = Meta.of(totalCount, request.getSize(), isEnd(request, totalCount));
+		final Meta meta = Meta.of(totalCount, isEnd(request, totalCount));
 		final List<Document> makeDocuments = makeDocuments(request);
 		final DocumentInfo.Documents documents = DocumentInfo.Documents.of(meta, makeDocuments);
 		given(mockApiClient.getDocuments(any())).willReturn(documents);
@@ -47,7 +47,7 @@ public class DocumentTestSupport {
 	}
 
 	private static Document makeDocument(final GetDocuments request, final int i) {
-		return Document.of(request.getQuery() + i, request.getQuery() + i, "url", "blogname", "thumbnail", ZonedDateTime.now());
+		return Document.of(request.getQuery() + i, request.getQuery() + i, "url", "blogname", "thumbnail", LocalDate.now());
 	}
 
 }

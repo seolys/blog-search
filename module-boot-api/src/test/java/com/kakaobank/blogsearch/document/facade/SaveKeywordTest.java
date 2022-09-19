@@ -5,8 +5,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 import com.kakaobank.blogsearch.document.domain.DocumentCommand.GetDocuments;
-import com.kakaobank.blogsearch.document.domain.DocumentCommand.Sort;
 import com.kakaobank.blogsearch.document.domain.DocumentService;
+import com.kakaobank.blogsearch.document.domain.DocumentSort;
 import com.kakaobank.blogsearch.keyword.domain.Keyword;
 import com.kakaobank.blogsearch.keyword.infra.KeywordRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -28,7 +28,7 @@ class SaveKeywordTest {
 	void saveKeyword_success() {
 		// given
 		final String keyword = "커피";
-		final GetDocuments request = GetDocuments.of(keyword, Sort.accuracy, 1, 20);
+		final GetDocuments request = GetDocuments.of(keyword, DocumentSort.accuracy, 1, 20);
 		mockSearchService();
 
 		// when

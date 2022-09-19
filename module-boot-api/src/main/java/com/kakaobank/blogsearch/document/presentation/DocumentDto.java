@@ -1,6 +1,6 @@
 package com.kakaobank.blogsearch.document.presentation;
 
-import com.kakaobank.blogsearch.document.domain.DocumentCommand;
+import com.kakaobank.blogsearch.document.domain.DocumentSort;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -99,13 +99,13 @@ public class DocumentDto {
 	@AllArgsConstructor
 	public enum Sort {
 		/** 정확도순 */
-		accuracy(DocumentCommand.Sort.accuracy),
+		accuracy(DocumentSort.accuracy),
 		/** 최신순 */
-		recency(DocumentCommand.Sort.recency);
+		recency(DocumentSort.recency);
 
-		private final DocumentCommand.Sort documentCommandSort;
+		private final DocumentSort documentCommandSort;
 
-		public static DocumentCommand.Sort toDocumentCommandSort(final Sort sort) {
+		public static DocumentSort toDocumentCommandSort(final Sort sort) {
 			if (Objects.isNull(sort)) {
 				return null;
 			}

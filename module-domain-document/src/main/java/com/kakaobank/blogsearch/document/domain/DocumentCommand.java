@@ -15,7 +15,7 @@ public class DocumentCommand {
 		private String query;
 
 		/** 결과 문서 정렬 방식 */
-		private Sort sort;
+		private DocumentSort sort;
 
 		/** 결과 페이지 번호 */
 		private Integer page;
@@ -37,13 +37,4 @@ public class DocumentCommand {
 		}
 	}
 
-	/**
-	 * 결과 문서 정렬 방식
-	 * */
-	public enum Sort {
-		/** 정확도순 */
-		accuracy,
-		/** 최신순 */
-		recency
-	}
 }

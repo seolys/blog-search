@@ -1,7 +1,7 @@
 package com.kakaobank.blogsearch.document.infra.apicaller.client.kakao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.kakaobank.blogsearch.document.domain.DocumentCommand;
+import com.kakaobank.blogsearch.document.domain.DocumentSort;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -107,13 +107,13 @@ public class KakaoDocumentApiDto {
 	@AllArgsConstructor
 	public enum Sort {
 		/** 정확도순 */
-		accuracy(DocumentCommand.Sort.accuracy),
+		accuracy(DocumentSort.accuracy),
 		/** 최신순 */
-		recency(DocumentCommand.Sort.recency);
+		recency(DocumentSort.recency);
 
-		private final DocumentCommand.Sort documentCommandSort;
+		private final DocumentSort documentCommandSort;
 
-		public static Sort of(final DocumentCommand.Sort sort) {
+		public static Sort of(final DocumentSort sort) {
 			if (Objects.isNull(sort)) {
 				return null;
 			}
