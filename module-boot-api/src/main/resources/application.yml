@@ -1,1 +1,12 @@
-
+logging:
+  level:
+    root: info
+    com.kakaobank: debug
+    org.springframework: info
+    
+app:
+  api:
+    kakao:
+      url: https://dapi.kakao.com
+      authorization: KakaoAK
+      rest-api-key: aa83b628f0d3033cc48ca05d40670230
