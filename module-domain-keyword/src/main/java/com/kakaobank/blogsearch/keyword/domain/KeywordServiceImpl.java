@@ -4,6 +4,7 @@ import com.kakaobank.blogsearch.keyword.domain.KeywordInfo.PopularKeywordInfo;
 import com.kakaobank.blogsearch.keyword.domain.KeywordInfo.PopularKeywords;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ public class KeywordServiceImpl implements KeywordService {
 	private final KeywordStore keywordStore;
 	private final KeywordReader keywordReader;
 
+	@Async // or EventMessage 발행
 	@Transactional
 	@Override public void saveKeyword(final KeywordCommand.Search commond) {
 		final Keyword keyword = commond.toEntity();

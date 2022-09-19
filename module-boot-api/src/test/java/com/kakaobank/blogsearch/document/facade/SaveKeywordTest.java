@@ -4,16 +4,23 @@ import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
+import com.kakaobank.blogsearch.BlogSearchApiApplication;
 import com.kakaobank.blogsearch.document.domain.DocumentCommand.GetDocuments;
 import com.kakaobank.blogsearch.document.domain.DocumentService;
 import com.kakaobank.blogsearch.document.domain.DocumentSort;
 import com.kakaobank.blogsearch.keyword.domain.Keyword;
 import com.kakaobank.blogsearch.keyword.infra.KeywordRepository;
+import java.util.concurrent.Executor;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Primary;
+import org.springframework.core.task.SyncTaskExecutor;
 
 @SpringBootTest
 class SaveKeywordTest {
@@ -22,6 +29,17 @@ class SaveKeywordTest {
 	@Autowired private KeywordRepository keywordRepository;
 
 	@MockBean private DocumentService documentService;
+
+	@Configuration
+	@Import(BlogSearchApiApplication.class)
+	static class ContextConfiguration {
+
+		@Primary
+		@Bean(name = "threadPoolTaskExecutor")
+		public Executor executor() {
+			return new SyncTaskExecutor();
+		}
+	}
 
 	@Test
 	@DisplayName("검색어 저장 검증")
