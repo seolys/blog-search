@@ -1,3 +1,4 @@
 rootProject.name = 'blog-search-service'
 
 include 'module-boot-api'
+include 'module-domain-document'
