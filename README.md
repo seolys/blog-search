@@ -1,6 +1,7 @@
 # Executable jar 다운로드 링크
 
 - [jar 다운로드 github link](https://github.com/seolnavy-code/blog-search-service/blob/main/kakaobank.jar)
+- [jar 다운로드 구글드라이브 link](https://drive.google.com/file/d/1KHo9g527mYN3gUwDHPzJIoqfmjRVNdyA/view?usp=sharing)
 
 # 프로젝트 설명
 
@@ -9,7 +10,7 @@
 - lombok 외 외부 라이브러리 사용을 최소화하였습니다.
 - 테스트 코드를 작성하였습니다.
 - 새로운 블로그 검색 소스를 추가해야 할 때 기존 코드를 최대한 수정하지 않고 추가할 수 있도록 고려하였습니다.<br/>검색 소스에서 오류가 발생 시 다음 검색 소스에서 데이터를 조회할 수 있도록 구현하였습니다.
-- 인기 검색어 조회 기능의 경우 캐시가 필요하다고 판단했습니다.<br/>대용량 트래픽에 대응하기 위해서 Redis를 적용하였습니다.
+- 인기 검색어 조회 기능의 경우 NoSQL이 필요하다고 판단했습니다.<br/>대용량 트래픽에 대응하기 위해서 Redis를 적용하였습니다.
     - 키워드 저장: ``` zincrby search:blog:keyword:total 1 {keyword} ```
     - 인기 키워드 10개 조회: ``` zrevrange search:blog:keyword:total 0 9 withscores ```
 
