@@ -23,6 +23,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.apache.httpcomponents:httpclient' // restTemplate
 
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+    implementation(group: 'it.ozimov', name: 'embedded-redis', version: '0.7.3') {
+        exclude group: 'org.slf4j', module: 'slf4j-simple'
+    }
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -30,6 +38,10 @@ dependencies {
     // module (rootProject.settings.gradle include와 매칭)
     implementation project(':module-domain-document')
     implementation project(':module-domain-keyword')
+}
+
+tasks.named('compileJava') {
+    inputs.files(tasks.named('processResources'))
 }
 
 tasks.named('test') {

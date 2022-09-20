@@ -9,7 +9,7 @@ import com.kakaobank.blogsearch.document.domain.DocumentCommand.GetDocuments;
 import com.kakaobank.blogsearch.document.domain.DocumentService;
 import com.kakaobank.blogsearch.document.domain.DocumentSort;
 import com.kakaobank.blogsearch.keyword.domain.Keyword;
-import com.kakaobank.blogsearch.keyword.infra.KeywordRepository;
+import com.kakaobank.blogsearch.keyword.infra.KeywordJpaRepository;
 import java.util.concurrent.Executor;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +26,7 @@ import org.springframework.core.task.SyncTaskExecutor;
 class SaveKeywordTest {
 
 	@Autowired private DocumentFacade documentFacade;
-	@Autowired private KeywordRepository keywordRepository;
+	@Autowired private KeywordJpaRepository keywordJpaRepository;
 
 	@MockBean private DocumentService documentService;
 
@@ -53,7 +53,7 @@ class SaveKeywordTest {
 		documentFacade.getDocuments(request);
 
 		// then
-		final Keyword findKeyword = keywordRepository.findById(1L).get();
+		final Keyword findKeyword = keywordJpaRepository.findById(1L).get();
 		assertThat(findKeyword.getKeyword()).isEqualTo(keyword);
 	}
 

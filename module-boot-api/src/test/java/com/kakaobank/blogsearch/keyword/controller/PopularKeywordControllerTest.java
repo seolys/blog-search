@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.kakaobank.blogsearch.keyword.domain.Keyword;
-import com.kakaobank.blogsearch.keyword.infra.KeywordRepository;
+import com.kakaobank.blogsearch.keyword.infra.KeywordJpaRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 class PopularKeywordControllerTest {
 
 	@Autowired private MockMvc mockMvc;
-	@Autowired private KeywordRepository keywordRepository;
+	@Autowired private KeywordJpaRepository keywordJpaRepository;
 
 	@Test
 	void popularTop10_empty_success() throws Exception {
@@ -52,7 +52,7 @@ class PopularKeywordControllerTest {
 	}
 
 	private void searched(final String query) {
-		keywordRepository.save(Keyword.searched(query));
+		keywordJpaRepository.save(Keyword.searched(query));
 	}
 
 }
