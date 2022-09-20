@@ -40,4 +40,8 @@ app:
     kakao:
       url: https://dapi.kakao.com
       authorization: KakaoAK
-      rest-api-key: DUMMY
+      rest-api-key: aa83b628f0d3033cc48ca05d40670230 # 코딩테스트 종료 후 재발급
+    naver:
+      url: https://openapi.naver.com
+      client-id: RCoLs_a78394_RjCV73m
+      client-secret: XKcTN47NzB

@@ -1,6 +1,5 @@
 package com.kakaobank.blogsearch.document.infra.apicaller.client.kakao;
 
-import com.kakaobank.blogsearch.document.infra.apicaller.client.DocumentApiClient;
 import com.kakaobank.blogsearch.document.infra.apicaller.client.kakao.KakaoDocumentApiDto.GetDocumentsRequest;
 import com.kakaobank.blogsearch.document.infra.apicaller.client.kakao.KakaoDocumentApiDto.GetDocumentsResponse;
 import java.net.URI;
@@ -21,7 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class KakaoDocumentApiClient implements DocumentApiClient {
+public class KakaoDocumentApiClient {
 
 	private final RestTemplate restTemplate;
 
@@ -32,7 +31,6 @@ public class KakaoDocumentApiClient implements DocumentApiClient {
 	@Value("${app.api.kakao.rest-api-key}")
 	private String apiKey;
 
-	@Override
 	public KakaoDocumentApiDto.GetDocumentsResponse getDocuments(final KakaoDocumentApiDto.GetDocumentsRequest request) {
 		final URI uri = getUri(KakaoApiPath.GET_DOCUMENTS.getPath(), request);
 
