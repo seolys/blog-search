@@ -52,12 +52,12 @@
 
 ### Parameter
 
-| Name  | Type    | Description                                               | Required |
-|-------|---------|-----------------------------------------------------------|----------|
-| query | String  | 검색을 원하는 질의어                                               | O        |
+| Name  | Type    | Description                                                | Required |
+|-------|---------|------------------------------------------------------------|----------|
+| query | String  | 검색을 원하는 질의어<br/>- 한글의 경우 UTF-8 인코딩되어야 합니다.         | O        |
 | sort  | String  | 결과 문서 정렬 방식<br/>- accuracy: 정확도순(기본 값)<br/> - recency: 최신순 | X        |
-| page  | Integer | 결과 페이지 번호<br/>- 1~50 사이의 값(기본 값 1)                        | X        |
-| size  | Integer | 한 페이지에 보여질 문서 수<br/>- 1~50 사이의 값(기본 값 1)                      | X        |
+| page  | Integer | 결과 페이지 번호<br/>- 1~50 사이의 값(기본 값 1)                         | X        |
+| size  | Integer | 한 페이지에 보여질 문서 수<br/>- 1~50 사이의 값(기본 값 1)                   | X        |
 
 ### Response Data
 
