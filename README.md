@@ -90,6 +90,8 @@
 
 ```curl
 curl --location --request GET 'http://localhost:8080/v1/documents?query=galaxy&sort=accuracy&page=2&size=5'
+
+curl --location --request GET 'http://localhost:8080/v1/documents?query=%EA%B0%A4%EB%9F%AD%EC%8B%9C&sort=accuracy&page=2&size=5'
 ```
 
 #### Response JSON
