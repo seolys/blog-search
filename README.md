@@ -14,6 +14,12 @@
     - 키워드 저장: ``` zincrby search:blog:keyword:total 1 {keyword} ```
     - 인기 키워드 10개 조회: ``` zrevrange search:blog:keyword:total 0 9 withscores ```
 
+# 실행가능한 환경정보
+
+- Linux, Mac OS
+    - 제출한 과제는 Embedded-Redis로 인하여 Windows에서는 실행이 되지 않습니다.
+- JAVA 11 이상
+
 # API 명세
 
 ## 공통
@@ -174,11 +180,11 @@ curl --location --request GET 'http://localhost:8080/v1/keywords/popularTop10'
 
 - Spring, h2 제외
 
-| 외부 라이브러리 | 사용 목적                                                        |
-|-----------------|--------------------------------------------------------------|
-| lombok          | Boilerplate code 최소화                                         |
-| httpclient      | RestTemplate 의존 라이브러리                                        |
-| embedded-redis  | 대용량 트래픽에 대응하기 위해 Redis 추가.<br/>실행가능한 jar파일을 위해서 Embedded로 적용 |
+| 외부 라이브러리 | 사용 목적                                                       |
+|-----------------|-------------------------------------------------------------|
+| lombok          | Boilerplate code 최소화                                        |
+| httpclient      | RestTemplate 의존 라이브러리                                       |
+| embedded-redis  | 대용량 트래픽에 대응하기 위해 Redis 추가<br/>실행가능한 jar파일을 위해서 Embedded로 적용 |
 
 # 실행방법
 
