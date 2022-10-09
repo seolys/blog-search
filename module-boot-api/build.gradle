@@ -1,51 +1,14 @@
-plugins {
-    id 'org.springframework.boot' version '2.7.3'
-    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
-    id 'java'
-}
-
-group = 'com.kakaobank'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
-    implementation 'org.apache.httpcomponents:httpclient' // restTemplate
-
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-
-    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
-
-    implementation(group: 'it.ozimov', name: 'embedded-redis', version: '0.7.3') {
-        exclude group: 'org.slf4j', module: 'slf4j-simple'
-    }
-
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     // module (rootProject.settings.gradle include와 매칭)
     implementation project(':module-domain-document')
     implementation project(':module-domain-keyword')
 }
 
-tasks.named('compileJava') {
-    inputs.files(tasks.named('processResources'))
-}
-
-tasks.named('test') {
-    useJUnitPlatform()
+tasks.jar {
+    enabled = false // plain jar 생성방지
 }
 
 tasks.register('prepareKotlinBuildScriptModel') {}
