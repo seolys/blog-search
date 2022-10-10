@@ -1,9 +1,9 @@
 spring:
   config:
-    import: classpath:/application.yml, classpath:/application-domain-keyword.yml, classpath:/application-domain-document.yml
+    import: classpath:/application-domain-keyword.yml, classpath:/application-domain-document.yml
   main:
     allow-bean-definition-overriding: true
-    
+
 logging:
   level:
     root: info
