@@ -11,7 +11,7 @@ repositories {
 bootJar.enabled = false
 
 subprojects {
-    group = 'com.kakaobank'
+    group = 'seolnavy'
     version = '0.0.1-' + new Date().format("yyyyMMddHHmmss")
     sourceCompatibility = '11'
 

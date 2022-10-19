@@ -5,5 +5,5 @@ spring:
 logging:
   level:
     root: info
-    com.kakaobank: debug
+    seolnavy: debug
     org.springframework: info
